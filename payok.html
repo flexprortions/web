@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Payment Methods</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #e2e8f0;
+        --text-secondary: #94a3b8;
+        --border-color: #334155;
+        --accent-color: #3b82f6;
+        --accent-hover: #2563eb;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        /* background-color: var(--bg-primary); */
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 700px;
+        background-color: var(--bg-secondary);
+        border-radius: 16px;
+        box-shadow: 0 25px 50px -12px var(--shadow-color);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+
+      .header {
+        background-color: var(--bg-primary);
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .crypto-methods {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .crypto-method {
+        display: flex;
+        align-items: center;
+        background-color: var(--bg-primary);
+        border-radius: 12px;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .crypto-method::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          transparent,
+          rgba(59, 130, 246, 0.1)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .crypto-method:hover::before {
+        opacity: 1;
+      }
+
+      .crypto-method:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px var(--shadow-color);
+        border-color: var(--accent-color);
+      }
+
+      .crypto-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--bg-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+      }
+
+      .crypto-icon img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+      }
+
+      .crypto-details {
+        flex-grow: 1;
+      }
+
+      .crypto-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 5px;
+      }
+
+      .crypto-network {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+      }
+
+      .wallet-address {
+        display: flex;
+        align-items: center;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      .address-text {
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .copy-btn {
+        background: none;
+        border: none;
+        color: var(--accent-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 5px;
+        border-radius: 4px;
+      }
+
+      .copy-btn:hover {
+        color: var(--accent-hover);
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+
+      .copy-btn.copied {
+        color: #10b981;
+      }
+
+      @media (max-width: 600px) {
+        .crypto-method {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+
+        .crypto-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+
+        .wallet-address {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="section-title">Crypto Payment Methods</h1>
+      </div>
+      <div class="crypto-methods" id="cryptoMethods"></div>
+    </div>
+
+    <script>
+      const cryptoMethods = [
+        {
+          name: "Bitcoin",
+          network: "Bitcoin Network (BTC)",
+          address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+          icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+        },
+        {
+          name: "Ethereum",
+          network: "Ethereum Network (ERC20)",
+          address: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+          icon: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+        },
+        {
+          name: "USDT",
+          network: "Tether Network (USDT)",
+          address: "TXzcF6YqgaCLCyGUaXNbJJZnvhGsJ8f5VS",
+          icon: "https://cryptologos.cc/logos/tether-usdt-logo.png",
+        },
+        {
+          name: "Solana",
+          network: "Solana Network (SOL)",
+          address: "5KqobL1VrZqZkZkqMszHyxwJ1sp6TRkKqtgwHXBqoLkH",
+          icon: "https://cryptologos.cc/logos/solana-sol-logo.png",
+        },
+        {
+          name: "Bitcoin Cash",
+          network: "Bitcoin Cash Network (BCH)",
+          address: "qp3wjpa3tjlj042z2wv7hahsldgwhwy0rq9sywjpyy",
+          icon: "https://cryptologos.cc/logos/bitcoin-cash-bch-logo.png",
+        },
+      ];
+
+      function renderCryptoMethods() {
+        const container = document.getElementById("cryptoMethods");
+
+        cryptoMethods.forEach((method) => {
+          const methodElement = document.createElement("div");
+          methodElement.classList.add("crypto-method");
+
+          methodElement.innerHTML = `
+                    <div class="crypto-icon">
+                        <img src="${method.icon}" alt="${method.name}">
+                    </div>
+                    <div class="crypto-details">
+                        <div class="crypto-name">${method.name}</div>
+                        <div class="crypto-network">${method.network}</div>
+                        <div class="wallet-address">
+                            <span class="address-text">${method.address}</span>
+                            <button class="copy-btn" onclick="copyAddress('${method.address}', this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+          container.appendChild(methodElement);
+        });
+      }
+
+      function copyAddress(address, button) {
+        navigator.clipboard
+          .writeText(address)
+          .then(() => {
+            button.classList.add("copied");
+            button.innerHTML = '<i class="fas fa-check"></i>';
+
+            setTimeout(() => {
+              button.classList.remove("copied");
+              button.innerHTML = '<i class="fas fa-copy"></i>';
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy address:", err);
+          });
+      }
+
+      // Render methods on page load
+      renderCryptoMethods();
+    </script>
+  </body>
+</html>

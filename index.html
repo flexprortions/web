@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>bitInvest</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Fontawesome CSS -->
+  <link href="css/all.css" rel="stylesheet" />
+  <!-- Owl Carousel CSS -->
+  <link href="css/owl.carousel.min.css" rel="stylesheet" />
+  <!-- Owl Carousel CSS -->
+  <link href="css/jquery.fancybox.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/chatbox.css">
+</head>
+
+<body>
+  <div class="wrapper-main">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light top-nav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="logo" />
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Plans</a>
+            </li>
+            <li class="nav-item">
+              <a href="faq.html" class="nav-link">FAQ</a>
+            </li>
+            <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="slider-main">
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('images/slider-01.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3 style="font-size: 60px;">Welcome to Flex proportions</h3>
+              <p>
+                Take the first step towards financial freedom with Flex proportions.
+                Our platform provides a secure, easy-to-use, and innovative
+                way to invest in cryptocurrencies, empowering you to build
+                wealth and achieve your goals.
+              <div class="container">
+                <div>
+                  <!-- <button class="log">Login</button> -->
+                  <button onclick="document.location='services.html'" class="reg">Get Started</button>
+                </div>
+
+
+
+                <div class="security-banner">
+                  <div class="security-icon">⚠️</div>
+                  <div class="security-content">
+                    <h5 class="security-title">Security First: Protect Your Investment</h5>
+                    <h6 class="security-text">
+                      Stay vigilant against crypto scams. Our platform prioritizes your security, but it's important to
+                      follow best practices to protect your investments.
+                    </h6>
+                    <!-- <div class="security-tips">
+                            <span class="security-tip">Never share private keys</span>
+                            <span class="security-tip">Verify all transactions</span>
+                            <span class="security-tip">Enable 2FA</span>
+                        </div> -->
+                  </div>
+                </div>
+              </div>
+              </p>
+            </div>
+
+            <!-- TradingView Widget BEGIN -->
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                  target="_blank"></a></div>
+              <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                  {
+                    "symbols": [
+                      {
+                        "proName": "BITSTAMP:BTCUSD",
+                        "title": "Bitcoin"
+                      },
+                      {
+                        "proName": "BITSTAMP:ETHUSD",
+                        "title": "Ethereum"
+                      },
+                      {
+                        "description": "Solana",
+                        "proName": "BINANCE:SOLUSDT"
+                      },
+                      {
+                        "description": "Doge",
+                        "proName": "BINANCE:DOGEUSDT"
+                      },
+                      {
+                        "description": "Trump",
+                        "proName": "BINANCE:TRUMPUSDT"
+                      },
+                      {
+                        "description": "WIF",
+                        "proName": "BINANCE:WIFUSDT"
+                      },
+                      {
+                        "description": "BNB",
+                        "proName": "BINANCE:BNBUSD"
+                      },
+                      {
+                        "description": "XRP",
+                        "proName": "BINANCE:XRPUSDT"
+                      },
+                      {
+                        "description": "AVAX",
+                        "proName": "BINANCE:AVAXUSDT"
+                      }
+                    ],
+                      "showSymbolLogo": true,
+                        "isTransparent": false,
+                          "displayMode": "adaptive",
+                            "colorTheme": "light",
+                              "locale": "en"
+                  }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+            <!-- TradingView Widget END -->
+
+            <!-- </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <!-- <div
+              class="carousel-item"
+              style="background-image: url('images/slider-02.jpg')"
+            >
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Your Crypto Partner</h3>
+                <p>
+                  At BitInvest, we're committed to helping you achieve your
+                  financial goals through cryptocurrency investing. Our platform
+                  is built on security, reliability, and expertise, giving you
+                  the confidence to invest and grow your wealth.
+                  <div class="container">
+                  <div>
+                    <button class="log">Login</button>
+                    <button class="reg">Get Started</button>
+                  </div>
+
+                  <div class="security-banner">
+                    <div class="security-icon">⚠️</div>
+                    <div class="security-content">
+                        <h5 class="security-title">Security First: Protect Your Investment</h5>
+                        <h6 class="security-text">
+                            Stay vigilant against crypto scams. Our platform prioritizes your security, but it's important to follow best practices to protect your investments.
+                        </h6>
+                        <div class="security-tips">
+                            <span class="security-tip">Never share private keys</span>
+                            <span class="security-tip">Verify all transactions</span>
+                            <span class="security-tip">Enable 2FA</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </p>
+              </div>
+
+               <!-- TradingView Widget BEGIN -->
+            <!-- TradingView Widget BEGIN -->
+            <!-- <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    },
+    {
+      "description": "Solana",
+      "proName": "BINANCE:SOLUSDT"
+    },
+    {
+      "description": "Doge",
+      "proName": "BINANCE:DOGEUSDT"
+    },
+    {
+      "description": "Trump",
+      "proName": "BINANCE:TRUMPUSDT"
+    },
+    {
+      "description": "WIF",
+      "proName": "BINANCE:WIFUSDT"
+    },
+    {
+      "description": "BNB",
+      "proName": "BINANCE:BNBUSD"
+    },
+    {
+      "description": "XRP",
+      "proName": "BINANCE:XRPUSDT"
+    },
+    {
+      "description": "AVAX",
+      "proName": "BINANCE:AVAXUSDT"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+            <!-- TradingView Widget END -->
+
+            <!-- </div> -->
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <!-- <div
+              class="carousel-item"
+              style="background-image: url('images/slider-03.jpg')"
+            >
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Future Investment</h3>
+                <p>
+                  Join the cryptocurrency revolution with BitInvest. Our
+                  platform provides a secure and reliable way to invest in
+                  cryptocurrencies, empowering you to take control of your
+                  financial future.
+                  <div class="container">
+                  <div>
+                    <button class="log">Login</button>
+                    <button class="reg">Get Started</button>
+                  </div>
+
+                  <!-- TradingView Widget BEGIN -->
+            <!-- <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    },
+    {
+      "description": "Solana",
+      "proName": "BINANCE:SOLUSDT"
+    },
+    {
+      "description": "Doge",
+      "proName": "BINANCE:DOGEUSDT"
+    },
+    {
+      "description": "Trump",
+      "proName": "BINANCE:TRUMPUSDT"
+    },
+    {
+      "description": "WIF",
+      "proName": "BINANCE:WIFUSDT"
+    },
+    {
+      "description": "BNB",
+      "proName": "BINANCE:BNBUSD"
+    },
+    {
+      "description": "XRP",
+      "proName": "BINANCE:XRPUSDT"
+    },
+    {
+      "description": "AVAX",
+      "proName": "BINANCE:AVAXUSDT"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+            <!-- <div class="security-banner">
+                    <div class="security-icon">⚠️</div>
+                    <div class="security-content">
+                        <h5 class="security-title">Security First: Protect Your Investment</h5>
+                        <h6 class="security-text">
+                            Stay vigilant against crypto scams. Our platform prioritizes your security, but it's important to follow best practices to protect your investments.
+                        </h6>
+                        <div class="security-tips">
+                            <span class="security-tip">Never share private keys</span>
+                            <span class="security-tip">Verify all transactions</span>
+                            <span class="security-tip">Enable 2FA</span>
+                        </div>
+                    </div>
+                </div> -->
+          </div>
+          </p>
+        </div>
+      </div> -->
+  </div>
+  <!-- <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a> -->
+  <!-- <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a> -->
+  </div>
+  <div class="chat-widget">
+    <div class="chat-toggle">
+      <i class="fas fa-comment"></i>
+    </div>
+
+    <div class="chat-box">
+      <div class="chat-header">
+        <h3>Flex proportions Support</h3>
+        <button class="close-chat">&times;</button>
+      </div>
+
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! How can I help you today?
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button>Send</button>
+      </div>
+    </div>
+  </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <!-- About Section -->
+    <div class="about-main">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>About Us</h2>
+          <p>
+            At Flex proportions, we're passionate about empowering individuals to take control of their financial futures
+            through cryptocurrency investing. Our team of experts combines years of experience in finance, technology,
+            and cryptography to provide a secure, innovative, and user-friendly investing platform.
+          </p>
+          <h5>Our smart approach</h5>
+          <ul>
+            <li><Strong>Expert Insights:</strong> Our team of experienced analysts and researchers provide valuable
+              market insights, helping you make informed investment decisions.</li>
+            <li>
+              <strong>Advanced Technology:</strong> Our platform utilizes cutting-edge technology, ensuring fast,
+              secure, and reliable transactions.
+            </li>
+            <li><strong>Personalized Experience:</strong> We offer tailored investment solutions, catering to your
+              unique financial goals and risk tolerance.</li>
+            <li>
+              <strong>Continuous Innovation:</strong> Our team is committed to staying at the forefront of industry
+              developments, ensuring our platform evolves to meet the changing needs of our users.
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-fluid rounded" src="images/blog-img-03.jpg" alt="" />
+          <img class="" src="images/logo.png" alt="" />
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+
+  <div class="services-bar">
+    <div class="container">
+      <h2 class="section-title" style="color: rgb(22, 128, 241);">Our Investment Offerings</h2>
+      <div class="plans-grid">
+        <!-- Starter Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Good Value</span>
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">$200</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">Basic market analysis</div>
+            <div class="feature-item">7.5% 40Hrs returns</div>
+            <div class="feature-item">Email support</div>
+            <div class="feature-item">Weekly updates</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+
+        <!-- Growth Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Most Popular</span>
+            <div class="plan-name">Growth</div>
+            <div class="plan-price">$200</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">Advanced market analysis</div>
+            <div class="feature-item">25% 48Hrs returns</div>
+            <div class="feature-item">Priority support</div>
+            <div class="feature-item">Daily updates</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Good Value</span>
+            <div class="plan-name">Premium</div>
+            <div class="plan-price">$300</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">Expert market analysis</div>
+            <div class="feature-item">30% 60Hrs returns</div>
+            <div class="feature-item">24/7 dedicated support</div>
+            <div class="feature-item">Real-time updates</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+
+        <!-- Professional Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Good Value</span>
+            <div class="plan-name">Professional</div>
+            <div class="plan-price">$500</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">Custom portfolio management</div>
+            <div class="feature-item">40% 85Hrs returns</div>
+            <div class="feature-item">Personal account manager</div>
+            <div class="feature-item">Priority access to new features</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Good Value</span>
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price">$700</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">Institutional-grade tools</div>
+            <div class="feature-item">45% 120Hrs returns</div>
+            <div class="feature-item">Dedicated team support</div>
+            <div class="feature-item">Custom reporting</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+
+        <!-- VIP Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="popular-badge">Best Value</span>
+            <div class="plan-name">VIP</div>
+            <div class="plan-price">$1,000</div>
+            <div class="plan-duration">Minimum Investment</div>
+          </div>
+          <div class="plan-features">
+            <div class="feature-item">AI-powered strategies</div>
+            <div class="feature-item">60% 180Hrs returns</div>
+            <div class="feature-item">VIP concierge service</div>
+            <div class="feature-item">Exclusive investment opportunities</div>
+          </div>
+          <!-- <a href="#" class="plan-button">Start Investing</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" style="color: rgb(22, 128, 241);">Why Choose Flex proportions</h2>
+        <p class="section-subtitle">Join thousands of investors who trust us with their financial future. Here's why
+          we're different.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="counter" data-target="150">0</span>K+
+          </div>
+          <div class="stat-label">Active Investors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">$<span class="counter" data-target="5">0</span>B+</div>
+          <div class="stat-label">Assets Under Management</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="counter" data-target="98">0</span>%
+          </div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="counter" data-target="10">0</span>+
+          </div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Bank-Level Security</h3>
+          <p class="feature-description">Your investments are protected by military-grade encryption and multi-layer
+            security protocols.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Licensed & Regulated</h3>
+          <p class="feature-description">We operate under strict financial regulations and maintain all required
+            licenses in multiple jurisdictions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Lightning Fast Execution</h3>
+          <p class="feature-description">Our advanced trading engine ensures your investments are executed at the best
+            possible moments.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Expert Support</h3>
+          <p class="feature-description">Our team of financial experts is available 24/7 to help you with any questions
+            or concerns.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Advanced Analytics</h3>
+          <p class="feature-description">Get detailed insights into your portfolio performance with our advanced
+            analytics tools.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Guaranteed Returns</h3>
+          <p class="feature-description">Our proven investment strategies have consistently delivered above-market
+            returns for our clients.</p>
+        </div>
+      </div>
+
+      <div class="certifications">
+        <div class="certification-badge">
+          <img src="/images/cert.png" alt="ISO Certification">
+          <span class="certification-text">ISO 27001 Certified</span>
+        </div>
+        <div class="certification-badge">
+          <img src="/images/encryp.jpg" alt="Security Certification">
+          <span class="certification-text">256-bit Encryption</span>
+        </div>
+        <div class="certification-badge">
+          <img src="/images/hammer.jpg" alt="Compliance Badge">
+          <span class="certification-text">Fully Regulated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="section-title">What Our Investors Say</h2>
+
+      <div class="testimonial-slider">
+        <div class="slider-container">
+          <div class="testimonial-card active">
+            <div class="card-content">
+              <div class="profile">
+                <img src="images/testi_03.png" alt="Sarah Chen" class="profile-image">
+                <div class="profile-info">
+                  <h3>Sarah Chen</h3>
+                  <p>Early Investor</p>
+                </div>
+              </div>
+              <div class="stars">★★★★★</div>
+              <p class="comment">"I've seen a 300% return on my initial investment. The platform's analytics tools
+                helped me make informed decisions."</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="card-content">
+              <div class="profile">
+                <img src="/images/testi_01.png" alt="Michael Rodriguez" class="profile-image">
+                <div class="profile-info">
+                  <h3>Michael Kamali</h3>
+                  <p>Crypto Trader</p>
+                </div>
+              </div>
+              <div class="stars">★★★★★</div>
+              <p class="comment">"The most user-friendly crypto platform I've used. Their security measures give me
+                peace of mind."</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="card-content">
+              <div class="profile">
+                <img src="/images/testi_02.png" alt="Alex Thompson" class="profile-image">
+                <div class="profile-info">
+                  <h3>Alex Thompson</h3>
+                  <p>Portfolio Manager</p>
+                </div>
+              </div>
+              <div class="stars">★★★★</div>
+              <p class="comment">"Outstanding customer support and real-time market insights. Highly recommended for
+                both beginners and pros."</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="slider-btn prev-btn">←</button>
+        <button class="slider-btn next-btn">→</button>
+
+        <div class="dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="section-header">
+      <h2 class="section-title">Learn How to Buy Bitcoin</h2>
+      <p class="section-subtitle">Watch these step-by-step tutorials to start your cryptocurrency journey safely and
+        confidently.</p>
+    </div>
+
+    <div class="video-container">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/Yb6825iv0Vk" title="How to Buy Bitcoin (2024) - Beginner's Guide"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">How to Buy Bitcoin - Complete Beginner's Guide</h3>
+          <p class="video-description">Perfect for newcomers, this guide walks you through the basics of buying your
+            first Bitcoin safely.</p>
+          <div class="video-meta">
+            <span class="video-duration">10:23</span>
+            <span class="difficulty">Beginner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/O_4LZBdMe6g?si=_zEz_Py5pSX5pmPX"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">How to Buy Bitcoin with Bank Transfer</h3>
+          <p class="video-description">Learn how to purchase Bitcoin directly using your bank account for lower fees and
+            better rates.</p>
+          <div class="video-meta">
+            <span class="video-duration">8:45</span>
+            <span class="difficulty">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/n7kXtVsFGss?si=tzxwOBTsEUa9KjvM"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">Securing Your Bitcoin Investment</h3>
+          <p class="video-description">Essential security practices for storing and protecting your Bitcoin after
+            purchase.</p>
+          <div class="video-meta">
+            <span class="video-duration">12:15</span>
+            <span class="difficulty">Advanced</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="section-header">
+      <h1>Frequently Asked Questions</h1>
+      <p>Get answers to the most common questions about crypto investing with us</p>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          How do I get started with crypto investment on your platform?
+        </div>
+        <div class="faq-answer">
+          Getting started is simple! First, create an account using your email address and complete our KYC verification
+          process. Once verified, you can deposit funds using bank transfer or credit card, and start investing in your
+          chosen cryptocurrencies. Our <span class="highlight">beginner-friendly interface</span> will guide you through
+          each step.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What security measures do you have in place to protect investments?
+        </div>
+        <div class="faq-answer">
+          We implement <span class="highlight">military-grade encryption</span>, two-factor authentication (2FA), cold
+          storage for 95% of assets, and regular security audits. Our platform is also insured against cyber threats,
+          and we conduct regular penetration testing to ensure maximum security for your investments.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What are the fees associated with trading on your platform?
+        </div>
+        <div class="faq-answer">
+          Our fee structure is transparent and competitive. Trading fees start at <span class="highlight">0.1%</span>
+          per transaction, with reduced rates for high-volume traders. Deposit fees vary by method, and withdrawals have
+          minimal network fees. Plus, our VIP members enjoy additional fee discounts and benefits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How can I track my investment performance?
+        </div>
+        <div class="faq-answer">
+          Our platform provides <span class="highlight">real-time portfolio tracking</span> with detailed analytics,
+          including profit/loss calculations, ROI metrics, and historical performance data. You can also set up custom
+          alerts for price movements and generate tax reports for your records.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What cryptocurrencies can I invest in on your platform?
+        </div>
+        <div class="faq-answer">
+          We offer a wide range of <span class="highlight">carefully curated cryptocurrencies</span>, including Bitcoin,
+          Ethereum, and other major altcoins. Our selection process ensures that only legitimate and promising projects
+          are listed, protecting our investors from potential scams.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How quickly can I withdraw my funds?
+        </div>
+        <div class="faq-answer">
+          Withdrawals are processed <span class="highlight">within 24 hours</span> for most cryptocurrencies. Fiat
+          withdrawals typically take 1-3 business days, depending on your bank and location. VIP members enjoy priority
+          processing for faster withdrawals.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Do you offer customer support for technical issues?
+        </div>
+        <div class="faq-answer">
+          Yes, we provide <span class="highlight">24/7 customer support</span> through multiple channels including live
+          chat, email, and phone. Our dedicated support team is trained to handle both technical issues and
+          investment-related queries promptly and professionally.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What tools do you provide for investment research?
+        </div>
+        <div class="faq-answer">
+          We offer comprehensive <span class="highlight">research tools</span> including technical analysis charts,
+          market insights, news aggregation, and expert analysis reports. Our platform also provides educational
+          resources and trading tutorials for investors at all levels.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Are there any minimum investment requirements?
+        </div>
+        <div class="faq-answer">
+          The minimum investment starts at just <span class="highlight">$10</span> for most cryptocurrencies, making our
+          platform accessible to beginners. However, we recommend starting with an amount you're comfortable with and
+          understanding the risks involved in crypto investment.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How do you handle tax reporting?
+        </div>
+        <div class="faq-answer">
+          We provide <span class="highlight">comprehensive tax reports</span> that track all your transactions
+          throughout the year. These reports include capital gains/losses calculations and can be exported in formats
+          compatible with major tax software. We also offer integration with popular tax reporting services.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <div class="touch-line">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p>
+            Get personalized guidance from our certified investment advisors. Reach out now.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-lg btn-secondary btn-block" href="#">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- /.container -->
+  <!--footer starts from here-->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo">Flex proportions</div>
+        <p class="footer-desc">Experience the future of crypto investing with our secure and innovative
+          platform.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <h4>Platform</h4>
+          <a href="#">How it Works</a>
+          <a href="#">Features</a>
+          <a href="#">Security</a>
+          <a href="#">Pricing</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Flex proportions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/jquery.appear.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/plan.js"></script>
+  <script src="js/trust.js"></script>
+  <script src="js/testimonial.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>

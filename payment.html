@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Add these styles to your existing CSS */
+      .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .payment-method {
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: var(--card);
+      }
+
+      .payment-method:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .payment-method.selected {
+        border-color: var(--primary);
+        background: #eff6ff;
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+      }
+
+      .payment-method img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 0.75rem;
+        border-radius: 50%;
+        padding: 0.2rem;
+        background: var(--background);
+      }
+
+      .payment-details {
+        margin-top: 1rem;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--background);
+      }
+
+      .payment-details.hidden {
+        display: none;
+      }
+
+      .details-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .details-row:last-child {
+        border-bottom: none;
+      }
+
+      .detail-label {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .detail-value {
+        color: var(--text-light);
+      }
+
+      .address-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .copy-btn {
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .copy-btn:hover {
+        background: var(--border);
+      }
+
+      .copy-btn.copied {
+        color: var(--success);
+      }
+
+      @media (max-width: 768px) {
+        .payment-methods {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .payment-methods {
+          grid-template-columns: 1fr;
+        }
+
+        .details-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+
+        .address-container {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Replace the existing payment-methods div with this: -->
+    <div class="form-group">
+      <label><i class="fas fa-credit-card"></i> Select Payment Method</label>
+      <div class="payment-methods">
+        <div class="payment-method" data-method="bitcoin">
+          <img src="/images/bitcoin.png" alt="Bitcoin" />
+          <div>Bitcoin</div>
+        </div>
+        <div class="payment-method" data-method="ethereum">
+          <img src="/images/ethereum.png" alt="Ethereum" />
+          <div>Ethereum</div>
+        </div>
+        <div class="payment-method" data-method="usdt">
+          <img src="/images/usd.png" alt="USDT" />
+          <div>USDT</div>
+        </div>
+        <div class="payment-method" data-method="solana">
+          <img src="/images/solana.png" alt="Solana" />
+          <div>Solana</div>
+        </div>
+        <div class="payment-method" data-method="bitcoin cash">
+          <img src="/images/bitcoin cash.png" alt="Bitcoin Cash" />
+          <div>Bitcoin Cash</div>
+        </div>
+      </div>
+
+      <div id="paymentDetails" class="payment-details hidden">
+        <div class="details-row">
+          <span class="detail-label">Crypto:</span>
+          <span id="cryptoName" class="detail-value"></span>
+        </div>
+        <div class="details-row">
+          <span class="detail-label">Network:</span>
+          <span id="network" class="detail-value"></span>
+        </div>
+        <div class="details-row">
+          <span class="detail-label">Address:</span>
+          <div class="address-container">
+            <span id="address" class="detail-value"></span>
+            <button class="copy-btn" onclick="copyAddress()">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-message" id="paymentError">
+        <i class="fas fa-exclamation-circle"></i> Please select a payment method
+      </div>
+    </div>
+    <script>
+      // Add this to your existing JavaScript
+      const walletAddresses = {
+        bitcoin: {
+          network: "Bitcoin Network (BTC)",
+          address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+        },
+        ethereum: {
+          network: "Ethereum Network (ERC20)",
+          address: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+        },
+        usdt: {
+          network: "Tether Network (USDT)",
+          address: "TXzcF6YqgaCLCyGUaXNbJJZnvhGsJ8f5VS",
+        },
+        solana: {
+          network: "Solana Network (SOL)",
+          address: "5KqobL1VrZqZkZkqMszHyxwJ1sp6TRkKqtgwHXBqoLkH",
+        },
+        "bitcoin cash": {
+          network: "Bitcoin Cash Network (BCH)",
+          address: "qp3wjpa3tjlj042z2wv7hahsldgwhwy0rq9sywjpyy",
+        },
+      };
+
+      function selectPayment(method) {
+        selectedPayment = method;
+
+        // Update selected state
+        document.querySelectorAll(".payment-method").forEach((el) => {
+          el.classList.remove("selected");
+        });
+        event.currentTarget.classList.add("selected");
+
+        // Show payment details
+        const details = document.getElementById("paymentDetails");
+        const cryptoName = document.getElementById("cryptoName");
+        const network = document.getElementById("network");
+        const address = document.getElementById("address");
+
+        details.classList.remove("hidden");
+        cryptoName.textContent =
+          method.charAt(0).toUpperCase() + method.slice(1);
+        network.textContent = walletAddresses[method].network;
+        address.textContent = walletAddresses[method].address;
+
+        document.getElementById("paymentError").style.display = "none";
+      }
+
+      async function copyAddress() {
+        const address = document.getElementById("address").textContent;
+        const copyBtn = document.querySelector(".copy-btn");
+
+        try {
+          await navigator.clipboard.writeText(address);
+          copyBtn.classList.add("copied");
+          copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+
+          setTimeout(() => {
+            copyBtn.classList.remove("copied");
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy:", err);
+        }
+      }
+
+      // Add click event listeners to payment methods
+      document.querySelectorAll(".payment-method").forEach((method) => {
+        method.addEventListener("click", () => {
+          selectPayment(method.dataset.method);
+        });
+      });
+    </script>
+  </body>
+</html>

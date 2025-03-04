@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Investment - Gold Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header h1 {
+            color: #1a1a1a;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #2563eb;
+            outline: none;
+        }
+
+        .calculator {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .calculator-result {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .result-row.total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .payment-method {
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: #2563eb;
+        }
+
+        .payment-method.selected {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .payment-method img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #16a34a;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #2563eb;
+            color: #1e40af;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Start Investment - Gold Plan</h1>
+                <p>Complete your investment details below</p>
+            </div>
+
+            <div class="info-box">
+                <strong>Investment Details:</strong>
+                <p>Minimum: $1,000 | Maximum: $50,000 | Duration: 3 months | Expected Return: 12.5% monthly</p>
+            </div>
+
+            <form id="investmentForm">
+                <div class="form-group">
+                    <label for="amount">Investment Amount ($)</label>
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        min="1000" 
+                        max="50000" 
+                        step="100"
+                        placeholder="Enter amount between $1,000 - $50,000"
+                        required
+                    >
+                    <div class="error-message" id="amountError">Please enter an amount between $1,000 and $50,000</div>
+                </div>
+
+                <div class="calculator">
+                    <h3>Profit Calculator</h3>
+                    <div class="calculator-result">
+                        <div class="result-row">
+                            <span>Monthly Profit (12.5%):</span>
+                            <span id="monthlyProfit">$0.00</span>
+                        </div>
+                        <div class="result-row">
+                            <span>3-Month Total Profit:</span>
+                            <span id="totalProfit">$0.00</span>
+                        </div>
+                        <div class="result-row total">
+                            <span>Total Return:</span>
+                            <span id="totalReturn">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Payment Method</label>
+                    <div class="payment-methods">
+                        <div class="payment-method" onclick="selectPayment('bitcoin')">
+                            <img src="/api/placeholder/40/40" alt="Bitcoin">
+                            <div>Bitcoin</div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('ethereum')">
+                            <img src="/api/placeholder/40/40" alt="Ethereum">
+                            <div>Ethereum</div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('usdt')">
+                            <img src="/api/placeholder/40/40" alt="USDT">
+                            <div>USDT</div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="paymentError">Please select a payment method</div>
+                </div>
+
+                <button type="submit" class="submit-btn">Confirm Investment</button>
+                <div class="success-message" id="successMessage">Investment submitted successfully!</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let selectedPayment = null;
+
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            document.querySelector(`.payment-method:nth-child(${
+                method === 'bitcoin' ? 1 : method === 'ethereum' ? 2 : 3
+            })`).classList.add('selected');
+            document.getElementById('paymentError').style.display = 'none';
+        }
+
+        function calculateProfits(amount) {
+            const monthlyRate = 0.125; // 12.5%
+            const monthlyProfit = amount * monthlyRate;
+            const totalProfit = monthlyProfit * 3;
+            const totalReturn = amount + totalProfit;
+
+            document.getElementById('monthlyProfit').textContent = `$${monthlyProfit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('totalProfit').textContent = `$${totalProfit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('totalReturn').textContent = `$${totalReturn.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        }
+
+        document.getElementById('amount').addEventListener('input', function(e) {
+            const amount = parseFloat(e.target.value);
+            if (amount >= 1000 && amount <= 50000) {
+                document.getElementById('amountError').style.display = 'none';
+                calculateProfits(amount);
+            } else {
+                document.getElementById('amountError').style.display = 'block';
+            }
+        });
+
+        document.getElementById('investmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            let hasError = false;
+
+            if (!amount || amount < 1000 || amount > 50000) {
+                document.getElementById('amountError').style.display = 'block';
+                hasError = true;
+            }
+
+            if (!selectedPayment) {
+                document.getElementById('paymentError').style.display = 'block';
+                hasError = true;
+            }
+
+            if (!hasError) {
+                // Here you would typically send the data to your server
+                document.getElementById('successMessage').style.display = 'block';
+                // Simulate redirect to payment page
+                setTimeout(() => {
+                    alert('Redirecting to payment gateway...');
+                    // window.location.href = `/payment/${selectedPayment}`;
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>

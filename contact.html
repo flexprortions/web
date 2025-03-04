@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Zonebiz - Business Consulting Bootstrap4 Responsive Template</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Fontawesome CSS -->
+    <link href="css/all.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/footer.css" />
+    <style>
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .footer-text {
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper-main">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light top-nav">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="logo" />
+          </a>
+          <button
+            class="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="fas fa-bars"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="faq.html" class="nav-link">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- full Title -->
+      <div class="full-title">
+        <div class="container">
+          <!-- Page Heading/Breadcrumbs -->
+          <h1 class="mt-4 mb-3">Contact</h1>
+          <div class="breadcrumb-main">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active">Contact</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-main">
+        <div class="container">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Map Column -->
+            <div class="col-lg-8 mb-4 contact-left">
+              <h3>Send us a Message</h3>
+              <form name="sentMessage" id="contactForm" novalidate>
+                <div class="control-group form-group">
+                  <div class="controls">
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      class="form-control"
+                      id="name"
+                      required
+                      data-validation-required-message="Please enter your name."
+                    />
+                    <p class="help-block"></p>
+                  </div>
+                </div>
+                <div class="control-group form-group">
+                  <div class="controls">
+                    <input
+                      type="tel"
+                      placeholder="Phone Number"
+                      class="form-control"
+                      id="phone"
+                      required
+                      data-validation-required-message="Please enter your phone number."
+                    />
+                  </div>
+                </div>
+                <div class="control-group form-group">
+                  <div class="controls">
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      class="form-control"
+                      id="email"
+                      required
+                      data-validation-required-message="Please enter your email address."
+                    />
+                  </div>
+                </div>
+                <div class="control-group form-group">
+                  <div class="controls">
+                    <textarea
+                      rows="5"
+                      cols="100"
+                      placeholder="Message"
+                      class="form-control"
+                      id="message"
+                      required
+                      data-validation-required-message="Please enter your message"
+                      maxlength="999"
+                      style="resize: none"
+                    ></textarea>
+                  </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="sendMessageButton"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-lg-4 mb-4 contact-right">
+              <h3>Contact Details</h3>
+              <p>
+                3481 Melrose Place
+                <br />Beverly Hills, CA 90210
+                <br />
+              </p>
+              <p>
+                <a href="mailto:flexproportions.com"></a>
+              </p>
+              <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00
+                PM
+              </p>
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+
+      <div class="map-main">
+        <!-- Embedded Google Map -->
+        <iframe
+          width="100%"
+          height="300px"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"
+        ></iframe>
+      </div>
+
+      <!--footer starts from here-->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-logo">Flex Proportions</div>
+            <div class="footer-text">
+              <p>
+                Redefining crypto investment with our innovative six-plan
+                approach.
+              </p>
+            </div>
+            <p>© 2025 Flex Proportions. All rights reserved.</p>
+            <p>
+              Investing in cryptocurrencies involves risk. Please invest
+              responsibly.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head and styles remain the same -->
+<head>
+    <!-- ... previous head content ... -->
+    <style>
+        /* ... previous styles ... */
+        
+        /* Adjust copy button styles for better clickability */
+        .copy-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 6px 12px;
+            background: #f8fafc;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .copy-wrapper:hover {
+            background: #e2e8f0;
+        }
+
+        .address-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .copied-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #16a34a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- ... previous content ... -->
+
+    <!-- Update the crypto details sections -->
+    <div id="bitcoinDetails" class="crypto-details">
+        <div class="detail-row">
+            <div class="detail-label">Cryptocurrency</div>
+            <div class="detail-value">Bitcoin (BTC)</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">Bitcoin Network</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+                <span class="wallet-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+                <div class="copy-wrapper" onclick="handleCopy('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh', this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ethereumDetails" class="crypto-details">
+        <div class="detail-row">
+            <div class="detail-label">Cryptocurrency</div>
+            <div class="detail-value">Ethereum (ETH)</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">Ethereum Network</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+                <span class="wallet-address">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</span>
+                <div class="copy-wrapper" onclick="handleCopy('0x742d35Cc6634C0532925a3b844Bc454e4438f44e', this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="usdtDetails" class="crypto-details">
+        <div class="detail-row">
+            <div class="detail-label">Cryptocurrency</div>
+            <div class="detail-value">USDT (Tether)</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">TRC20</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+                <span class="wallet-address">TN3W4H6rK2ce4vX9YnFQHwKENnHjoxb3m9</span>
+                <div class="copy-wrapper" onclick="handleCopy('TN3W4H6rK2ce4vX9YnFQHwKENnHjoxb3m9', this)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="copiedMessage" class="copied-message">
+        Address copied to clipboard!
+    </div>
+
+    <script>
+        // ... previous script content ...
+
+        async function handleCopy(text, element) {
+            try {
+                // Create a temporary textarea
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                
+                // Select and copy the text
+                textarea.select();
+                document.execCommand('copy');
+                
+                // Remove the temporary textarea
+                document.body.removeChild(textarea);
+
+                // Show success message
+                const message = document.getElementById('copiedMessage');
+                message.style.display = 'block';
+                
+                // Update button text temporarily
+                const spanElement = element.querySelector('span');
+                const originalText = spanElement.textContent;
+                spanElement.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    message.style.display = 'none';
+                    spanElement.textContent = originalText;
+                }, 2000);
+
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+        }
+
+        // ... rest of your previous script ...
+    </script>
+</body>
+</html>

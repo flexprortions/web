@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Wallet Addresses</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        background-color: #f8fafc;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 768px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #1e293b;
+        margin-bottom: 2rem;
+        font-size: 1.875rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-accent {
+        height: 4px;
+      }
+
+      .accent-btc {
+        background-color: #f59e0b;
+      }
+      .accent-eth {
+        background-color: #3b82f6;
+      }
+      .accent-usdt {
+        background-color: #22c55e;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .crypto-info h2 {
+        font-size: 1.125rem;
+        color: #1e293b;
+        margin-bottom: 0.25rem;
+      }
+
+      .network {
+        font-size: 0.875rem;
+        color: #64748b;
+      }
+
+      .badge {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
+
+      .badge-btc {
+        background-color: #f59e0b;
+      }
+      .badge-eth {
+        background-color: #3b82f6;
+      }
+      .badge-usdt {
+        background-color: #22c55e;
+      }
+
+      .address-container {
+        background-color: #f8fafc;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .wallet-address {
+        font-family: monospace;
+        font-size: 0.875rem;
+        color: #334155;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .copy-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: white;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        color: #64748b;
+        transition: all 0.2s;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .copy-button:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: #1e293b;
+      }
+
+      .copy-button svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        background-color: #22c55e;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(1rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wallet-address {
+          font-size: 0.75rem;
+        }
+
+        .card-content {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Crypto Wallet Addresses</h1>
+
+      <div class="card">
+        <div class="card-accent accent-btc"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <div class="crypto-info">
+              <h2>Bitcoin (BTC)</h2>
+              <div class="network">Bitcoin Network</div>
+            </div>
+            <div class="badge badge-btc">BTC</div>
+          </div>
+          <div class="address-container">
+            <span class="wallet-address"
+              >bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span
+            >
+            <button
+              class="copy-button"
+              onclick="copyToClipboard('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh', this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent accent-eth"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <div class="crypto-info">
+              <h2>Ethereum (ETH)</h2>
+              <div class="network">Ethereum Network</div>
+            </div>
+            <div class="badge badge-eth">ETH</div>
+          </div>
+          <div class="address-container">
+            <span class="wallet-address"
+              >0x742d35Cc6634C0532925a3b844Bc454e4438f44e</span
+            >
+            <button
+              class="copy-button"
+              onclick="copyToClipboard('0x742d35Cc6634C0532925a3b844Bc454e4438f44e', this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent accent-usdt"></div>
+        <div class="card-content">
+          <div class="card-header">
+            <div class="crypto-info">
+              <h2>USDT (Tether)</h2>
+              <div class="network">TRC20</div>
+            </div>
+            <div class="badge badge-usdt">USDT</div>
+          </div>
+          <div class="address-container">
+            <span class="wallet-address"
+              >TN3W4H6rK2ce4vX9YnFQHwKENnHjoxb3m9</span
+            >
+            <button
+              class="copy-button"
+              onclick="copyToClipboard('TN3W4H6rK2ce4vX9YnFQHwKENnHjoxb3m9', this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">Address copied to clipboard!</div>
+
+    <script>
+      function copyToClipboard(text, button) {
+        const span = button.querySelector("span");
+        const originalText = span.textContent;
+        const toast = document.getElementById("toast");
+
+        navigator.clipboard
+          .writeText(text)
+          .then(function () {
+            span.textContent = "Copied!";
+            toast.style.display = "block";
+
+            setTimeout(function () {
+              span.textContent = originalText;
+              toast.style.display = "none";
+            }, 2000);
+          })
+          .catch(function (err) {
+            console.error("Failed to copy:", err);
+          });
+      }
+    </script>
+  </body>
+</html>

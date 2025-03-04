@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Investment - Gold Plan</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Fontawesome CSS -->
+  <link href="css/all.css" rel="stylesheet" />
+  <!-- Owl Carousel CSS -->
+  <link href="css/owl.carousel.min.css" rel="stylesheet" />
+  <!-- Owl Carousel CSS -->
+  <link href="css/jquery.fancybox.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/footer.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --error: #ef4444;
+        --background: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --text-light: #6b7280;
+        --border: #e5e7eb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: rgb(231, 231, 240);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+        /* padding: 2rem; */
+      }
+
+      .container {
+        /* max-width: 1000px; */
+        margin: 0 auto;
+        margin-top: 15px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .header h1 {
+        color: blue;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        color: black;
+        font-size: 1.1rem;
+      }
+
+      .info-box {
+        background: linear-gradient(135deg, #dbeafe, #eff6ff);
+        border: none;
+        color: #1e40af;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      }
+
+      .form-group {
+        /* max-width: 500px; */
+        margin: 0 auto;
+      }
+
+      .form-group > label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+       label {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: var(--background);
+      }
+
+      input[type="number"]:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        outline: none;
+      }
+
+      .calculator {
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+      }
+
+      .calculator h3 {
+        color: var(--text);
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .calculator-result {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .result-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        font-size: 1rem;
+      }
+
+      .result-row.total {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px dashed var(--border);
+      }
+
+      .payment-methods {
+        display: grid;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .payment-method {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .payment-header {
+        padding: 1rem 1.5rem;
+        background: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background 0.2s;
+      }
+
+      .payment-header:hover {
+        background: #f1f5f9;
+      }
+
+      .payment-header.active {
+        background: #f1f5f9;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .crypto-details {
+        display: none;
+        padding: 1.5rem;
+        background: white;
+      }
+
+      .crypto-details.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .detail-row {
+        margin-bottom: 1rem;
+      }
+
+      .detail-label {
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-bottom: 0.25rem;
+      }
+
+      .detail-value {
+        font-weight: 500;
+      }
+
+      .address-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f8fafc;
+        padding: 0.75rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        margin-top: 0.5rem;
+      }
+
+      .wallet-address {
+        font-family: monospace;
+        font-size: 0.875rem;
+        word-break: break-all;
+      }
+
+      .copy-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding: 6px 12px;
+        background: white;
+        border-radius: 4px;
+        transition: all 0.2s;
+        border: 1px solid #e2e8f0;
+      }
+
+      .copy-wrapper:hover {
+        background: #f1f5f9;
+      }
+
+      .confirm-button {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 1rem;
+      }
+
+      .confirm-button:hover {
+        background: #1d4ed8;
+      }
+
+      .confirm-button:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+      }
+
+      .confirmation-message {
+        display: none;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #dcfce7;
+        color: #166534;
+        border-radius: 6px;
+        text-align: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .copied-message {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #16a34a;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+
+        .address-container {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .copy-wrapper {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper-main">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-light top-nav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="logo" />
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Plans</a>
+            </li>
+            <li class="nav-item">
+              <a href="faq.html" class="nav-link">FAQ</a>
+            </li>
+            <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li>
+              <a class="nav-link" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+    <div class="container">
+     <div class="header">
+          <h1>Starter Plan</h1>
+          <p>Complete your investment details below</p>
+        </div>
+
+        <div class="info-box">
+          <strong
+            ><i class="fas fa-info-circle"></i> Investment Details:</strong
+          >
+          <p>
+            Minimum: $200 | Maximum: $50,000 | Duration: 40 Hrs | Expected
+            Return: 7.5%
+          </p>
+        </div>
+
+        <form id="investmentForm">
+          <div class="form-group">
+            <label for="amount"
+              ><i class="fas fa-dollar-sign"></i> Investment Amount</label
+            >
+            <input
+              type="number"
+              id="amount"
+              min="1000"
+              max="50000"
+              step="100"
+              placeholder="Enter amount between $200 - $50,000"
+              required
+            />
+            <div class="error-message" id="amountError">
+              <i class="fas fa-exclamation-circle"></i> Please enter an amount
+              between $200 and $50,000
+            </div>
+          </div>
+
+    <div class="calculator">
+      <h3><i class="fas fa-calculator"></i> Profit Calculator</h3>
+      <div class="calculator-result">
+        <div class="result-row">
+          <span><i class="fas fa-chart-line"></i> Hourly Profit (0.18%):</span>
+          <span id="hourlyProfit">$0.00</span>
+        </div>
+        <div class="result-row">
+          <span><i class="fas fa-coins"></i> 40 Hrs Total Profit:</span>
+          <span id="totalProfit">$0.00</span>
+        </div>
+        <div class="result-row total">
+          <span><i class="fas fa-piggy-bank"></i> Total Return:</span>
+          <span id="totalReturn">$0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-methods">
+      <label><i class="fas fa-credit-card"></i> Select Payment Method</label>
+      <div class="payment-method">
+        <div class="payment-header" onclick="togglePayment('bitcoin')">
+          <span>Bitcoin (BTC)  <img src="images/bitcoin.png" alt=""></span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div id="bitcoinDetails" class="crypto-details">
+          <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">Bitcoin Network</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+              <span class="wallet-address"
+                >bc1q9gk7fphrluz6r7m8ysmc5430xt8tc6kfkfkdcz</span
+              >
+              <div
+                class="copy-wrapper"
+                onclick="handleCopy('bc1q9gk7fphrluz6r7m8ysmc5430xt8tc6kfkfkdcz', this)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+                <span>Copy</span>
+              </div>
+            </div>
+          </div>
+          <button class="confirm-button" onclick="confirmPayment('bitcoin')">
+            Confirm Payment
+          </button>
+          <div class="confirmation-message">
+            Payment confirmation sent! Awaiting verification...
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <div class="payment-header" onclick="togglePayment('ethereum')">
+          <span>Ethereum (ETH)  <img src="images/ethereum.png" alt=""></span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div id="ethereumDetails" class="crypto-details">
+          <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">Ethereum Network</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+              <span class="wallet-address"
+                >0x9c264fCf5b4C521Ad88b6b73c6A5c856336a6191</span
+              >
+              <div
+                class="copy-wrapper"
+                onclick="handleCopy('0x9c264fCf5b4C521Ad88b6b73c6A5c856336a6191', this)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+                <span>Copy</span>
+              </div>
+            </div>
+          </div>
+          <button class="confirm-button" onclick="confirmPayment('ethereum')">
+            Confirm Payment
+          </button>
+          <div class="confirmation-message">
+            Payment confirmation sent! Awaiting verification...
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <div class="payment-header" onclick="togglePayment('usdt')">
+          <span>USDT (Tether)  <img src="images/usd.png" alt=""></span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div id="usdtDetails" class="crypto-details">
+          <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">TRC20</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+              <span class="wallet-address"
+                >TQGBAexF3kQn6BGXdJFqxdzi6D9R6fW6SD</span
+              >
+              <div
+                class="copy-wrapper"
+                onclick="handleCopy('TQGBAexF3kQn6BGXdJFqxdzi6D9R6fW6SD', this)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+                <span>Copy</span>
+              </div>
+            </div>
+          </div>
+          <button class="confirm-button" onclick="confirmPayment('usdt')">
+            Confirm Payment
+          </button>
+          <div class="confirmation-message">
+            Payment confirmation sent! Awaiting verification...
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <div class="payment-header" onclick="togglePayment('litecoin')">
+          <span>Litecoin   <img src="images/litecoin.png" alt=""></span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div id="litecoinDetails" class="crypto-details">
+          <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">TRC20</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+              <span class="wallet-address"
+                >ltc1qkpdjqzgk9latpfylshx8364eh0edj0dqns7s2h</span
+              >
+              <div
+                class="copy-wrapper"
+                onclick="handleCopy('ltc1qkpdjqzgk9latpfylshx8364eh0edj0dqns7s2h', this)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+                <span>Copy</span>
+              </div>
+            </div>
+          </div>
+          <button class="confirm-button" onclick="confirmPayment('litecoin')">
+            Confirm Payment
+          </button>
+          <div class="confirmation-message">
+            Payment confirmation sent! Awaiting verification...
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <div class="payment-header" onclick="togglePayment('bitcoincash')">
+          <span>BitcoinCash  <img src="images/bitcoin cash.png" alt=""></span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div id="bitcoincashDetails" class="crypto-details">
+          <div class="detail-row">
+            <div class="detail-label">Network</div>
+            <div class="detail-value">TRC20</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Wallet Address</div>
+            <div class="address-container">
+              <span class="wallet-address"
+                >qpved7x9426mu4d39klshalmqdfxslpsxugvm6436u</span
+              >
+              <div
+                class="copy-wrapper"
+                onclick="handleCopy('qpved7x9426mu4d39klshalmqdfxslpsxugvm6436u', this)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+                <span>Copy</span>
+              </div>
+            </div>
+          </div>
+          <button class="confirm-button" onclick="confirmPayment('bitcoincash')">
+            Confirm Payment
+          </button>
+          <div class="confirmation-message">
+            Payment confirmation sent! Awaiting verification...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="copiedMessage" class="copied-message">
+      Address copied to clipboard!
+    </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo">BitInvest</div>
+        <p class="footer-desc">Experience the future of crypto investing with our secure and innovative
+          platform.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <h4>Platform</h4>
+          <a href="#">How it Works</a>
+          <a href="#">Features</a>
+          <a href="#">Security</a>
+          <a href="#">Pricing</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 BitInvest. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+    <script>
+      function togglePayment(type) {
+        const selectedDetail = document.getElementById(`${type}Details`);
+        const selectedHeader = selectedDetail.previousElementSibling;
+
+        // If this section is already active, collapse it
+        if (selectedDetail.classList.contains("active")) {
+          selectedDetail.classList.remove("active");
+          selectedHeader.classList.remove("active");
+          return;
+        }
+
+        // Hide all payment details first
+        document.querySelectorAll(".crypto-details").forEach((detail) => {
+          detail.classList.remove("active");
+        });
+        document.querySelectorAll(".payment-header").forEach((header) => {
+          header.classList.remove("active");
+        });
+
+        // Show the selected payment detail
+        selectedDetail.classList.add("active");
+        selectedHeader.classList.add("active");
+      }
+
+      async function handleCopy(text, element) {
+        try {
+          // Create a temporary textarea
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          document.body.appendChild(textarea);
+
+          // Select and copy the text
+          textarea.select();
+          document.execCommand("copy");
+
+          // Remove the temporary textarea
+          document.body.removeChild(textarea);
+
+          // Show success message
+          const message = document.getElementById("copiedMessage");
+          message.style.display = "block";
+
+          // Update button text temporarily
+          const spanElement = element.querySelector("span");
+          const originalText = spanElement.textContent;
+          spanElement.textContent = "Copied!";
+
+          setTimeout(() => {
+            message.style.display = "none";
+            spanElement.textContent = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy text: ", err);
+        }
+      }
+
+    //   function confirmPayment(type) {
+    //     const details = document.getElementById(`${type}Details`);
+    //     const button = details.querySelector(".confirm-button");
+    //     const message = details.querySelector(".confirmation-message");
+
+    //     button.disabled = true;
+    //     message.style.display = "block";
+
+    //     // Reset after 5 seconds (simulating verification process)
+    //     setTimeout(() => {
+    //       button.disabled = false;
+    //       message.style.display = "none";
+    //     }, 5000);
+    //   }
+
+      
+      // Add click event listeners to payment methods
+      document.querySelectorAll(".payment-method").forEach((method) => {
+        method.addEventListener("click", () => {
+          selectPayment(method.dataset.method);
+        });
+      });
+
+      function calculateProfits(amount) {
+        const hourlyRate = 0.001875;
+        const hourlyProfit = amount * hourlyRate;
+        const totalProfit = hourlyProfit * 40;
+        const totalReturn = amount + totalProfit;
+
+        document.getElementById(
+          "hourlyProfit"
+        ).textContent = `$${hourlyProfit.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
+        document.getElementById(
+          "totalProfit"
+        ).textContent = `$${totalProfit.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
+        document.getElementById(
+          "totalReturn"
+        ).textContent = `$${totalReturn.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
+      }
+
+      document.getElementById("amount").addEventListener("input", function (e) {
+        const amount = parseFloat(e.target.value);
+        if (amount >= 200 && amount <= 50000) {
+          document.getElementById("amountError").style.display = "none";
+          calculateProfits(amount);
+        } else {
+          document.getElementById("amountError").style.display = "block";
+        }
+      });
+
+      document
+        .getElementById("investmentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const amount = parseFloat(document.getElementById("amount").value);
+          let hasError = false;
+
+          if (!amount || amount < 200 || amount > 50000) {
+            document.getElementById("amountError").style.display = "block";
+            hasError = true;
+          }
+
+          if (!selectedPayment) {
+            document.getElementById("paymentError").style.display = "block";
+            hasError = true;
+          }
+
+          if (!hasError) {
+            document.getElementById("successMessage").style.display = "block";
+            setTimeout(() => {
+              alert("Redirecting to payment gateway...");
+            }, 1500);
+          }
+        });
+
+        function confirmPayment(type) {
+        const details = document.getElementById(`${type}Details`);
+        const button = details.querySelector(".confirm-button");
+        const message = details.querySelector(".confirmation-message");
+
+        button.disabled = true;
+        message.style.display = "block";
+
+        // Reset after 5 seconds (simulating verification process)
+        setTimeout(() => {
+          button.disabled = false;
+          message.style.display = "none";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
